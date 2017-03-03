@@ -2,24 +2,29 @@
 
   <!-- START Test Lat - Long data -->
   <!-- START Test Lat - Long data -->
-  <div class="jum">
-    <div class="jum">
+  <div class="container-fluid">
+    <div class="row is-flex">
 
       <p class="lead">
-        <div ng-init="location=''">
+        <div class="col-sm-12" ng-init="location=''">
           What is "ours" extends beyond your own backyard. This is my land. This land is your land. You can
           take care of all it's issues by yourself or, we can help those who have been hired to help us - with a couple simple easy phone calls.
           <p>
             <div>Call your represenatives, after all they work for you (and me). Be kind and polite; call to tell them you'd like them to do or stop doing something. Call to thank them for something they've done. If they are doing something you approve of,
               they need to know. Encourage them to keep it up! Call once a week, it's not that many calls; this way you can help steer our government before things get further out of hand.
             </div>
+            <div class="col-sm-12">
             <label for="location">To find your repsenatives, put your Street Address in here:
             <input type="text" name="location" ng-model="location" value="Seattle University, 12th Avenue, Seattle, WA">
+</label>
             <span class="wrappable">
-            Then click the button: <button class="btn btn-lg btn-primary" ng-click="refreshCurrent(location)">Show me my Reps</button>
+            Then click the button: <button class="btn btn-lg btn-primary" ng-model="reps" ng-click="refreshCurrent(location)">Show me my Reps</button>
+</span>
+</div>
+<div class="col-sm-12">
             Show Contact Details: <input type="checkbox" ng-model="contactDetails">
-          </span>
-          </label>
+</div>
+
           </p>
           You can call your reps by simply clicking on the phone numbers!
 
@@ -78,12 +83,12 @@ RINSE AND REPEATE
 ////////////////////////////////////-->
 
   <div class="container-fluid" id="statereps">
-    <div class="row is-flex" id="text">
+    <div class="row is-flex" id="headertext">
       <h1>Your Reps</h1>
 
       <div ng-init="repsearch" class="container">
 
-        <dl class="col-sm-6 col-md-4 col-lg-4" ng-repeat="repinfo in repsearch">
+        <dl class="col-sm-12 col-md-4 col-lg-4" ng-repeat="repinfo in repsearch">
           <dd><img class="img-responsive" ng-src="{{repinfo.photo_url}}"></dd>
           <!--Data supplies chamber: upper or lower to designate House or Senate
 Upper & Lower are meaningless to the public so we'll translate them here.-->
