@@ -17,6 +17,7 @@
             <input type="text" name="location" ng-model="location" value="Seattle University, 12th Avenue, Seattle, WA">
             <span class="wrappable">
             Then click the button: <button class="btn btn-lg btn-primary" ng-click="refreshCurrent(location)">Show me my Reps</button>
+            Show Contact Details: <input type="checkbox" ng-model="contactDetails">
           </span>
           </label>
           </p>
@@ -98,12 +99,14 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
 
           <dl ng-repeat="office in repinfo.offices">
             <dd>Ph: <a href="tel:+1{{office.phone}}">{{office.phone}}</a></dd>
+            <span ng-show="contactDetails">
             <dd ng-if="office.fax">Fx: {{office.fax}}</dd>
             <dd ng-if="office.email">email: {{office.email}}</dd>
             <p></p>
 
             <dd> {{office.name}}</dd>
             <dd>Address: {{office.address}}</dd>
+          </span>
 
             <dl ng-repeat="role in repinfo.roles" ng-show="$first">
               <dd>Term of Service: {{role.term | limitTo:4}} - {{role.term | limitTo:-4}}</dd>
@@ -135,10 +138,12 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
             <span ng-switch-when="R">Republican</span>
           </dd>
           <dd>Ph: <a href="tel:+1{{repinfofed.phone}}">{{repinfofed.phone}}</a></dd>
+          <span ng-show="contactDetails">
           <dd ng-if="repinfofed.fax">Fx: {{repinfofed.fax}}</dd>
           <dd ng-if="repinfofed.oc_email">email: {{repinfofed.oc_email}}</dd>
           <p></p>
           <dd>{{repinfofed.office}}</dd>
+        </span>
           <dd>Term of Service {{repinfofed.term_start}}, {{repinfofed.term_end}}
           </dd>
         </dl>
