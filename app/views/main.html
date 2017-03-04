@@ -18,7 +18,7 @@
             <input type="text" name="location" ng-model="location" value="Seattle University, 12th Avenue, Seattle, WA">
 </label>
             <span class="wrappable">
-            Then click the button: <button class="btn btn-lg btn-primary" ng-model="reps" ng-click="refreshCurrent(location)">Show me my Reps</button>
+            Then click the button: <button class="btn btn-lg btn-primary" ng-click="refreshCurrent(location)">Show me my Reps</button>
 </span>
 </div>
 <div class="col-sm-12">
@@ -26,7 +26,12 @@
 </div>
 
           </p>
-          You can call your reps by simply clicking on the phone numbers!
+  <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
+    <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
+          <dl ng-repeat="repinfofed in repdata.results | limitTo:1">
+          <dd>{{repinfofed.state}} </dd></dl>
+  <!--End Show the State so I can use it to get the state flag//////////////////////////-->
+  <!--End Show the State so I can use it to get the state flag//////////////////////////-->        You can call your reps by simply clicking on the phone numbers!
 
           <!--  <dl>
             <dt>Lat</dt>
