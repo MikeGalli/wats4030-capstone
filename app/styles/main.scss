@@ -1,9 +1,8 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
-
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/"; // bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss"; // endbower
 @import "textmodifications";
+@import "flags";
+@import "buttonmodifications";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -12,43 +11,29 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-#statereps {
-  background: url(../images/alaska-flag-large.jpg);
-  background-color: rgba(255,255,255,0.9);
-background-blend-mode: lighten;
-background-size: cover;
-}
-
-#fedreps {
-  background: url(../images/American-Iphone-Flag-HD-Wallpapers_V2.jpg);
-  background-color: rgba(255,255,255,0.9);
-background-blend-mode: lighten;
-background-size: cover;
-}
-
 .img-responsive {
   max-width: 50%;
   min-width: 49%;
 }
+
 body {
   padding: 0;
 }
+
 .wrappable {
   white-space: nowrap;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */
+.footer,
 .header,
-.marketing,
-.footer {
+.marketing {
   padding-left: 15px;
   padding-right: 15px;
 }
-
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
-
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -57,7 +42,6 @@ body {
     padding-bottom: 19px;
   }
 }
-
 /* Custom page footer */
 .footer {
   padding-top: 19px;
@@ -68,7 +52,6 @@ body {
 .container-narrow > hr {
   margin: 30px 0;
 }
-
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -79,7 +62,6 @@ body {
     padding: 14px 24px;
   }
 }
-
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -88,23 +70,22 @@ body {
     margin-top: 28px;
   }
 }
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 99%;
   }
-  .img-responsive{
+
+  .img-responsive {
     display: block;
     max-width: 50%;
     min-width: 50%;
     height: auto;
   }
-
   /* Remove the padding we set earlier */
+  .footer,
   .header,
-  .marketing,
-  .footer {
+  .marketing {
     padding-left: 0;
     padding-right: 0;
   }

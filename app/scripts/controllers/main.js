@@ -10,8 +10,10 @@
 angular.module('wats4030CapstoneApp')
   .controller('MainCtrl', function($scope, current, repsearchfed, repsearch) {
     $scope.current = current.query();
-
+//// Refresh data in the div AND make the div visiable /////////////////
     $scope.refreshCurrent = function(location) {
+//// Make the div visiable /////////////////
+      $scope.IsVisible = $scope.IsVisible ? false : true;    
       $scope.current = current.query({
         location: location
       });
