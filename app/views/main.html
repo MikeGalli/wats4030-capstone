@@ -3,7 +3,7 @@
   <!-- START Test Lat - Long data -->
   <!-- START Test Lat - Long data -->
   <div class="container-fluid">
-    <div class="row is-flex"> 
+    <div class="row is-flex">
 
       <p class="lead">
         <div class="col-sm-12" ng-init="location=''">
@@ -28,25 +28,7 @@
               </div>
             </div>
           </div>
-          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
-          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
-          <div ng-init="repsearchfed">
-            <dl ng-repeat="repinfofed in repdata.results | limitTo:1">
-              <dd>sample data{{repinfofed.state}}
-                <img ng-src="../images/{{repinfofed.state}}.jpg" height="200px" ; />
-              </dd>
-            </dl>
-            <!--End Show the State so I can use it to get the state flag//////////////////////////-->
-            <!--End Show the State so I can use it to get the state flag//////////////////////////-->
-
-
-            <!--  <dl>
-            <dt>Lat</dt>
-            <dd>{{current.results[0].geometry.location.lat}}</dd>
-            <dt>Lng</dt>
-            <dd>{{current.results[0].geometry.location.lng}}</dd>
-          </dl>  -->
-          </div>
+          
         </div>
       </p>
     </div>
