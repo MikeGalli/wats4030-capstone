@@ -1,0 +1,35 @@
+/* sidebar  sidebar  sidebar  sidebar  sidebar  sidebar */
+.sidebar {
+  background: clear;
+  position: fixed;
+  top: 20%;
+  left: 0px;
+  width: 20%;
+}
+/* sidebar  sidebar  sidebar  sidebar  sidebar  sidebar */
+
+/* sidebar  sidebar  sidebar  sidebar  sidebar  sidebar */
+.sidebar:hover {
+	width: 25%;
+}
+.rtselect:before {
+	content: "Samples here";
+	width: 600px;
+	/* 	margin-left: 12rem; */
+	position: absolute;
+	right: 1rem;
+}
+.sidebar {
+	background: rgba(99, 99, 253, 0.61);
+	position: fixed;
+  padding-left: 1rem;
+	top: 35%;
+	right: 0px;
+	width: 9%;
+	transition: 3s width;
+	transition-property: width;
+	transition-duration: 3s;
+	transition-timing-function: initial;
+	transition-delay: initial;
+}
+/* sidebar  sidebar  sidebar  sidebar  sidebar  sidebar */

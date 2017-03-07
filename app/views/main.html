@@ -28,7 +28,32 @@
               </div>
             </div>
           </div>
-          
+          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
+          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
+          <div ng-init="repsearchfed">
+            <dl ng-repeat="repinfofed in repdata.results | limitTo:1">
+              <dd>sample data{{repinfofed.state}}
+                <img ng-src="../images/{{repinfofed.state}}.jpg" height="200px">
+              </dd>
+              <dd ng-style="{'background-image' : 'url(../images/{{repinfofed.state}}.jpg)'
+              }" >BKG<p>111<p></p><p></p><p></p><p></p><p></p></p><p>222</p><p>333</p>
+              </dd>
+            </dl>
+            <!--   <li ng-style="{'background-image':'url(/static/'+imgURL+')'}">...</li>
+              ng-style="{'background-image':'url(https://www.google.com/images/srpr/logo4w.png)'}"> -->
+</div>
+
+            <!-- End Show the State so I can use it to get the state flag//////////////////////////-->
+            <!-- End Show the State so I can use it to get the state flag//////////////////////////-->
+
+
+            <!--  <dl>
+            <dt>Lat</dt>
+            <dd>{{current.results[0].geometry.location.lat}}</dd>
+            <dt>Lng</dt>
+            <dd>{{current.results[0].geometry.location.lng}}</dd>
+          </dl>  -->
+
         </div>
       </p>
     </div>
@@ -189,7 +214,7 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
   <div class="row marketing">
     <!-- Start SocialShare Buttons ////////////////////////////////-->
     <!-- Start SocialShare Buttons ////////////////////////////////-->
-    <div class="btn-group">
+    <div class="sidebar">
       Share this website!
       <p></p>
       <!-- Start Facebook Share ////////////////////////////////-->
