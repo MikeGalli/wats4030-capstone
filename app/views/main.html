@@ -88,7 +88,7 @@ Data returned from the API : repsearch - (is an array that also contains an arra
 RINSE AND REPEATE
 ////////////////////////////////////-->
 
-  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(images/stateFlags/{{repinfofed.state}}.png)',
+  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(/images/stateFlags/{{repinfofed.state}}.png)',
   'background-size' : '100%',
   'background-color' : 'rgba(255,255,255,0.7)',
   'background-blend-mode' : 'lighten'
