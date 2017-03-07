@@ -28,26 +28,9 @@
               </div>
             </div>
           </div>
-          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
-          <!--Start Show the State so I can use it to get the state flag//////////////////////////-->
-          <div ng-init="repsearchfed">
-            <dl ng-repeat="repinfofed in repdata.results | limitTo:1">
-              <dd>sample data{{repinfofed.state}}
-                <img ng-src="../images/{{repinfofed.state}}.jpg" height="200px">
-              </dd>
-              <dd ng-style="{'background-image' : 'url(../images/{{repinfofed.state}}.jpg)'
-              }" >BKG<p>111<p></p><p></p><p></p><p></p><p></p></p><p>222</p><p>333</p>
-              </dd>
-            </dl>
-            <!--   <li ng-style="{'background-image':'url(/static/'+imgURL+')'}">...</li>
-              ng-style="{'background-image':'url(https://www.google.com/images/srpr/logo4w.png)'}"> -->
-</div>
-
-            <!-- End Show the State so I can use it to get the state flag//////////////////////////-->
-            <!-- End Show the State so I can use it to get the state flag//////////////////////////-->
 
 
-            <!--  <dl>
+          <!--  <dl>
             <dt>Lat</dt>
             <dd>{{current.results[0].geometry.location.lat}}</dd>
             <dt>Lng</dt>
@@ -102,17 +85,24 @@ Data returned from the API : repsearch - (is an array that also contains an arra
 RINSE AND REPEATE
 ////////////////////////////////////-->
 
-  <div ng-show="IsVisible" class="container-fluid" id="statereps">
+  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(../images/stateFlags/{{repinfofed.state}}.png)',
+  'background-size' : '100%',
+  'background-color' : 'rgba(255,255,255,0.7)',
+  'background-blend-mode' : 'lighten'
 
-    <div class="row is-flex" id="headertext">
-      <h1>Your Reps</h1>
+}">
+
+    <div ng-init="repsearch" class="row is-flex" id="headertext">
+      <h1 class="headertext">Your Reps</h1>
 
       <!-- <img ng-src="../images/{{repinfofed.state}}.jpg" />
 
 url("../images/American-Iphone-Flag-HD-Wallpapers_V2.jpg")
 -->
 
-      <div ng-init="repsearch" class="container">
+
+
+      <div class="container">
 
         <dl class="col-sm-12 col-md-4 col-lg-4" ng-repeat="repinfo in repsearch">
           <dd><img class="img-responsive" ng-src="{{repinfo.photo_url}}"></dd>
@@ -157,98 +147,98 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
         </div>
       </div>
     </div>
-  </div>
+    </div>
 
 
 
 
 
-  <!--End RepSearch//////////////////////////-->
-  <!--End RepSearch//////////////////////////-->
+    <!--End RepSearch//////////////////////////-->
+    <!--End RepSearch//////////////////////////-->
 
 
-  <!--Start RepSearchFED//////////////////////////-->
-  <!--Start RepSearchFED//////////////////////////-->
+    <!--Start RepSearchFED//////////////////////////-->
+    <!--Start RepSearchFED//////////////////////////-->
 
-  <div ng-show="IsVisible" class="container-fluid" id="fedreps">
-    <div class="row is-flex">
-      <h1>Your FED Reps</h1>
-      <!--{{repdata|json}}-->
-      <div ng-init="repsearchfed" class="container">
-        <dl class="col-sm-6 col-md-4 col-lg-4" ng-repeat="repinfofed in repdata.results">
-          <dd><img class="img-responsive" ng-src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/{{repinfofed.bioguide_id}}.jpg">
-          </dd>
-          <dd>{{repinfofed.chamber | uppercase}}</dd>
-          <dd ng-switch="repinfofed.party">{{repinfofed.first_name}} {{repinfofed.last_name}}
-            <span ng-switch-when="D">Democrat</span>
-            <span ng-switch-when="R">Republican</span>
-          </dd>
-          <dd>Ph: <a href="tel:+1{{repinfofed.phone}}">{{repinfofed.phone}}</a></dd>
-          <span ng-show="contactDetails">
+    <div ng-show="IsVisible" class="container-fluid" id="fedreps">
+      <div class="row is-flex">
+        <h1 class="headertext">Your FED Reps</h1>
+        <!--{{repdata|json}}-->
+        <div ng-init="repsearchfed" class="container">
+          <dl class="col-sm-6 col-md-4 col-lg-4" ng-repeat="repinfofed in repdata.results">
+            <dd><img class="img-responsive" ng-src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/{{repinfofed.bioguide_id}}.jpg">
+            </dd>
+            <dd>{{repinfofed.chamber | uppercase}}</dd>
+            <dd ng-switch="repinfofed.party">{{repinfofed.first_name}} {{repinfofed.last_name}}
+              <span ng-switch-when="D">Democrat</span>
+              <span ng-switch-when="R">Republican</span>
+            </dd>
+            <dd>Ph: <a href="tel:+1{{repinfofed.phone}}">{{repinfofed.phone}}</a></dd>
+            <span ng-show="contactDetails">
           <dd ng-if="repinfofed.fax">Fx: {{repinfofed.fax}}</dd>
           <dd ng-if="repinfofed.oc_email">email: {{repinfofed.oc_email}}</dd>
           <p></p>
           <dd>{{repinfofed.office}}</dd>
         </span>
-          <dd>Term of Service {{repinfofed.term_start}}, {{repinfofed.term_end}}
-          </dd>
-        </dl>
-      </div>
-    </div>
-
-
-    <div class="container-fluid" ng-show="IsVisible">
-      <div class="row is-flex">
-        <div class="col-sm-12 col-md-6">
-          Show More Contact Details: <input type="checkbox" ng-model="contactDetails">
-        </div>
-        <div class="call col-sm-12 col-md-6">You can call your reps by simply clicking on the phone numbers!
+            <dd>Term of Service {{repinfofed.term_start}}, {{repinfofed.term_end}}
+            </dd>
+          </dl>
         </div>
       </div>
+
+
+      <div class="container-fluid" ng-show="IsVisible">
+        <div class="row is-flex">
+          <div class="col-sm-12 col-md-6">
+            Show More Contact Details: <input type="checkbox" ng-model="contactDetails">
+          </div>
+          <div class="call col-sm-12 col-md-6">You can call your reps by simply clicking on the phone numbers!
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <!--End RepSearchFED//////////////////////////-->
-  <!--End RepSearchFED//////////////////////////-->
+    <!--End RepSearchFED//////////////////////////-->
+    <!--End RepSearchFED//////////////////////////-->
 
 
-  <div class="row marketing">
-    <!-- Start SocialShare Buttons ////////////////////////////////-->
-    <!-- Start SocialShare Buttons ////////////////////////////////-->
-    <div class="sidebar">
-      Share this website!
-      <p></p>
-      <!-- Start Facebook Share ////////////////////////////////-->
-      <button class="socialbutton" socialshare socialshare-provider="facebook" socialshare-type="share" socialshare-via="145634995501895" socialshare-media="http://imgur.com/a/HKHL3" socialshare-quote="It only takes a few minutes." socialshare-hashtags="#MJG, #ourgovs.com"
-          socialshare-title="This is Our Government" socialshare-mobileiframe="true" socialshare-caption="Calling our Legislators is ann easy way to help keep our country on track" socialshare-url="http://ourgovs.com" socialshare-popup-height="300" socialshare-popup-width="400"
-          socialshare-trigger="click"><img ng-src="images/Facebook.png" />
-        </button>
+    <div class="row marketing">
+      <!-- Start SocialShare Buttons ////////////////////////////////-->
+      <!-- Start SocialShare Buttons ////////////////////////////////-->
+      <div class="sidebar">
+        Share this website!
+        <p></p>
         <!-- Start Facebook Share ////////////////////////////////-->
-
-
-        <!-- Start Twitter Share ////////////////////////////////-->
-        <button class="socialbutton" socialshare socialshare-provider="twitter" socialshare-hashtags="ourgovs.com, reps, congress" socialshare-via="twitter" socialshare-text="{{test.testValue}}" socialshare-url="http://ourgovs.com" socialshare-popup-height="300"
-            socialshare-popup-width="400" socialshare-trigger="click"><img ng-src="images/Twitter.png" />
-
+        <button class="socialbutton" socialshare socialshare-provider="facebook" socialshare-type="share" socialshare-via="145634995501895" socialshare-media="http://imgur.com/a/HKHL3" socialshare-quote="It only takes a few minutes." socialshare-hashtags="#MJG, #ourgovs.com"
+            socialshare-title="This is Our Government" socialshare-mobileiframe="true" socialshare-caption="Calling our Legislators is ann easy way to help keep our country on track" socialshare-url="http://ourgovs.com" socialshare-popup-height="300" socialshare-popup-width="400"
+            socialshare-trigger="click"><img ng-src="images/Facebook.png" />
           </button>
-          <!-- End Twitter Share ////////////////////////////////-->
+          <!-- Start Facebook Share ////////////////////////////////-->
 
 
+          <!-- Start Twitter Share ////////////////////////////////-->
+          <button class="socialbutton" socialshare socialshare-provider="twitter" socialshare-hashtags="ourgovs.com, reps, congress" socialshare-via="twitter" socialshare-text="{{test.testValue}}" socialshare-url="http://ourgovs.com" socialshare-popup-height="300"
+              socialshare-popup-width="400" socialshare-trigger="click"><img ng-src="images/Twitter.png" />
 
-          <!-- Start LinkedIn Share ////////////////////////////////-->
-          <button class="socialbutton" socialshare socialshare-provider="linkedin" socialshare-text="{{test.testValue}}" socialshare-url="http://imgur.com/a/HKHL3" socialshare-description="OurGovs.com will tell you who your repesenatives are" socialshare-source="OurGovs.com"
-              socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click">
-            <img ng-src="images/LinkedIn.png" />
             </button>
+            <!-- End Twitter Share ////////////////////////////////-->
 
-            <button class="socialbutton" socialshare socialshare-provider="email" socialshare-body="Hello! http://ourgovs.com" socialshare-to="test@test.ing" socialshare-cc="test@test.ing" socialshare-media="https://www.google.it/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-                socialshare-subject="Very important email" socialshare-popup-height="300" socialshare-popup-width="400">
-              <img ng-src="images/Email.png" />
+
+
+            <!-- Start LinkedIn Share ////////////////////////////////-->
+            <button class="socialbutton" socialshare socialshare-provider="linkedin" socialshare-text="{{test.testValue}}" socialshare-url="http://imgur.com/a/HKHL3" socialshare-description="OurGovs.com will tell you who your repesenatives are" socialshare-source="OurGovs.com"
+                socialshare-popup-height="300" socialshare-popup-width="400" socialshare-trigger="click">
+              <img ng-src="images/LinkedIn.png" />
               </button>
 
+              <button class="socialbutton" socialshare socialshare-provider="email" socialshare-body="Hello! http://ourgovs.com" socialshare-to="test@test.ing" socialshare-cc="test@test.ing" socialshare-media="https://www.google.it/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+                  socialshare-subject="Very important email" socialshare-popup-height="300" socialshare-popup-width="400">
+                <img ng-src="images/Email.png" />
+                </button>
 
+
+      </div>
+      <!-- End LinkedIn Share ////////////////////////////////-->
+      <!-- End SocialShare Buttons ////////////////////////////////-->
+      <!-- End SocialShare Buttons ////////////////////////////////-->
     </div>
-    <!-- End LinkedIn Share ////////////////////////////////-->
-    <!-- End SocialShare Buttons ////////////////////////////////-->
-    <!-- End SocialShare Buttons ////////////////////////////////-->
-  </div>
 </body>
