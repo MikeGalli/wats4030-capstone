@@ -7,9 +7,11 @@
 
       <p class="lead">
         <div class="col-sm-12" ng-init="location=''">
-          What is "ours" extends beyond your own backyard. This is my land. This land is your land. You can try to take care of all it's issues by yourself or, we can help those who have been hired (elected) to help us - with a couple simple easy phone calls.
+          <h1>Contact your legistators now.</h1>
+          This land is our land. Help those who have been hired (elected) to help us - with a couple simple easy phone calls.
           <p></p>
-          <div>Call your represenatives, after all they work for you (and me). Be kind and polite; call to tell them you'd like them to do or stop doing something. Call to thank them for something they've done. If they are doing something you approve of, they
+          <div><h2>5 minutes </h2><span><h6>(of phone calls)</h6><h2> once a week makes a huge difference!</h2></span>
+            Call your represenatives, after all they work for you (and me). Be kind and polite; call to tell them you'd like them to do or stop doing something. Call to thank them for something they've done. If they are doing something you approve of, they
             need to know. Encourage them to keep it up! Call once a week, it's not that many calls; this way you can help steer our government before things get further out of hand.
             <p></p>
           </div>
@@ -17,7 +19,8 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-12 col-md-6">
-                <label for="location"><h5>To find your repsenatives, put your Street Address in here:<input type="text" name="location" ng-model="location" value=""></h5>
+                <label for="location"><h5>To find your repsenatives, put your Street Address in here:<input type="text" name="location" ng-model="location" value="">
+                <h6 class="disclaimerText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*It's safe!</h6></h5>
               </label>
               </div>
 
@@ -85,7 +88,7 @@ Data returned from the API : repsearch - (is an array that also contains an arra
 RINSE AND REPEATE
 ////////////////////////////////////-->
 
-  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(../images/stateFlags/{{repinfofed.state}}.png)',
+  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(images/stateFlags/{{repinfofed.state}}.png)',
   'background-size' : '100%',
   'background-color' : 'rgba(255,255,255,0.7)',
   'background-blend-mode' : 'lighten'
