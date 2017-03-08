@@ -7,24 +7,31 @@
 
       <p class="lead">
         <div class="col-sm-12" ng-init="location=''">
-          <h1>Contact your legistators now.</h1>
-          This land is our land. Help those who have been hired (elected) to help us - with a couple simple easy phone calls.
-          <p></p>
-          <div><h2 style="display:inline;">5 minutes </h2><span><h3 style="display:inline;">(of phone calls)</h3><h2 style="display:inline;"> once a week makes a huge difference!</h2></span>
-            <br>Call your representatives, after all they work for you (and me). Be kind and polite; call to tell them you'd like them to do or stop doing something. Call to thank them for something they've done. If they are doing something you approve of, they
-            need to know. Encourage them to keep it up! Call once a week, it's not that many calls; this way you can help steer our government before things get further out of hand.
-            <p></p>
-          </div>
+
+
+          <h1>Contact your legislators now.</h1>
+          <span>Our legislators must be held accountable to the people they represent- us. Use <strong style="display:inline;">your</strong> voice to make a difference today.
+
+          All it takes is 5 minutes.</span>
+
+          <h4>You can make a difference, just call once a week!</h4>
+
+          <span>The time to act is now. Make yourself <strong>heard</strong> and hold your reps accountable to the values that got you to vote for them.</span>
+          <br>Not sure what to say? Look at this script to help you get your message to legislators about important issues:<br>
+          <i>Hello, my name is __________, and I’m calling today from __(city)__ to urge Senator/Congressman __________ to support/oppose____________. This is an important issue to me as one of their constituents and I hope that they will continue to uphold my values so that I can vote for them.
+          Thank you for sharing my message.</i><br>
+
+
 
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
+            <div class="row is-flex">
+              <div class="col-sm-12 col-md-6 findReps">
                 <label for="location"><h5>To find your repsenatives, put your Street Address in here:<input type="text" name="location" ng-model="location" value="">
-                <h6 class="disclaimerText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*It's safe!</h6></h5>
+                <span class="disclaimerText">*It's safe!</span></h5>
               </label>
               </div>
 
-              <div class="col-sm-6 col-md-6">
+              <div class="col-sm-6 col-md-6 findReps">
                 <h5>Then click the button: <button class="btn btn-xs btn-primary" ng-click="refreshCurrent(location)">Show me my Reps</button>
               </h5>
 
@@ -88,12 +95,7 @@ Data returned from the API : repsearch - (is an array that also contains an arra
 RINSE AND REPEATE
 ////////////////////////////////////-->
 
-  <div ng-show="IsVisible" class="container-fluid" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1" ng-style="{'background-image' : 'url(images/stateFlags/{{repinfofed.state}}.png)',
-  'background-size' : '100%',
-  'background-color' : 'rgba(255,255,255,0.7)',
-  'background-blend-mode' : 'lighten'
-
-}">
+  <div ng-show="IsVisible" class="container-fluid {{repinfofed.state}}" id="statereps" ng-init="repsearchfed" ng-repeat="repinfofed in repdata.results | limitTo:1">
 
     <div ng-init="repsearch" class="row is-flex" id="headertext">
       <h1 class="headertext">Your Reps</h1>
@@ -107,8 +109,9 @@ url("../images/American-Iphone-Flag-HD-Wallpapers_V2.jpg")
 
       <div class="container">
 
-        <dl class="col-sm-12 col-md-4 col-lg-4" ng-repeat="repinfo in repsearch">
-          <dd><img class="img-responsive" ng-src="{{repinfo.photo_url}}"></dd>
+        <dl class="col-sm-12 col-md-4 col-lg-4 reps" ng-repeat="repinfo in repsearch">
+          <dd ng-switch="repinfo.photo_url">
+            <img class="img-responsive" ng-src="{{repinfo.photo_url}}"></dd>
           <!--Data supplies chamber: upper or lower to designate House or Senate
 Upper & Lower are meaningless to the public so we'll translate them here.-->
           <dd ng-switch="repinfo.chamber">
@@ -144,7 +147,7 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
     <div class="container-fluid" ng-show="IsVisible">
       <div class="row is-flex">
         <div class="col-sm-12 col-md-6">
-          Show More Contact Details: <input type="checkbox" ng-model="contactDetails">
+          <span>Show More Contact Details: <input type="checkbox" ng-model="contactDetails"></span>
         </div>
         <div class="call col-sm-12 col-md-6">You can call your reps by simply clicking on the phone numbers!
         </div>
@@ -168,7 +171,7 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
         <h1 class="headertext">Your FED Reps</h1>
         <!--{{repdata|json}}-->
         <div ng-init="repsearchfed" class="container">
-          <dl class="col-sm-6 col-md-4 col-lg-4" ng-repeat="repinfofed in repdata.results">
+          <dl class="col-sm-6 col-md-4 col-lg-4 reps" ng-repeat="repinfofed in repdata.results">
             <dd><img class="img-responsive" ng-src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/225x275/{{repinfofed.bioguide_id}}.jpg">
             </dd>
             <dd>{{repinfofed.chamber | uppercase}}</dd>
@@ -193,7 +196,7 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
       <div class="container-fluid" ng-show="IsVisible">
         <div class="row is-flex">
           <div class="col-sm-12 col-md-6">
-            Show More Contact Details: <input type="checkbox" ng-model="contactDetails">
+            <span>Show More Contact Details: <input type="checkbox" ng-model="contactDetails"></span>
           </div>
           <div class="call col-sm-12 col-md-6">You can call your reps by simply clicking on the phone numbers!
           </div>

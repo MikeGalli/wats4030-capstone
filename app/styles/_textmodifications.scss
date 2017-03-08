@@ -1,7 +1,43 @@
+strong {
+display: inline !important;
+}
+
 .disclaimerText {
   font-size: 1rem;
 }
 
 .headertext {
   margin: 1rem;
+}
+
+
+.findReps {
+  background-color: rgba(163, 163, 199, 0.68);
+}
+
+.reps {
+  background-color: rgba(255,255,255,0.4);
+  padding-top: 1rem;
+}
+
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
