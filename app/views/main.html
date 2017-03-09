@@ -8,18 +8,22 @@
       <p class="lead">
         <div class="col-sm-12" ng-init="location=''">
 
-
-          <h1>Contact your legislators now.</h1>
+          <ul class="list-inline">
+            <li><img src="images/OurGovsLogo.png"></li>
+            <li><h1>This is our government.</h1></li>
+          </ul>
+          <h3>Contact your legislators now.</h3>
           <span>Our legislators must be held accountable to the people they represent- us. Use <strong style="display:inline;">your</strong> voice to make a difference today.
 
           All it takes is 5 minutes.</span>
 
-          <h4>You can make a difference, just call once a week!</h4>
+          <span><h4>You can make a difference, just call once a week!</h4>
+          <h5>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Start your own campaign! Get your friends to call! &emsp;&emsp;&emsp;Use those "Share" buttons!</h5></span>
 
           <span>The time to act is now. Make yourself <strong>heard</strong> and hold your reps accountable to the values that got you to vote for them.</span>
-          <br>Not sure what to say? Look at this script to help you get your message to legislators about important issues:<br>
-          <i>Hello, my name is __________, and I’m calling today from __(city)__ to urge Senator/Congressman __________ to support/oppose____________. This is an important issue to me as one of their constituents and I hope that they will continue to uphold my values so that I can vote for them.
-          Thank you for sharing my message.</i><br>
+          <span><br>Not sure what to say? Click here: <input type="checkbox" ng-model="script"></span> <span ng-show="script"><h5>&emsp;&emsp;&emsp;This is script to help you get your message to legislators about important issues:</h5>
+          <i>Hello, my name is __________, and I’m calling today from __(city)__ to urge Senator/Congressman __________ to support/oppose____________. This is an important issue to me as one of his/her constituents and I hope that they will continue to uphold my values so that I can vote for him/her.
+          Thank you for sharing my message.</i></span><br>
 
 
 
@@ -135,7 +139,7 @@ Upper & Lower are meaningless to the public so we'll translate them here.-->
             <dd>Address: {{office.address}}</dd>
           </span>
 
-            <dl ng-repeat="role in repinfo.roles" ng-show="$first">
+            <dl ng-repeat="role in repinfo.roles" ng-show="$first"><!--Term is reported more than 1x in the data-->
               <dd>Term of Service: {{role.term | limitTo:4}} - {{role.term | limitTo:-4}}</dd>
             </dl>
           </dl>
